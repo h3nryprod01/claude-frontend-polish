@@ -15,9 +15,11 @@ tools to do better — detection rules *and* ready-made polish.
 |-------|--------------|------|
 | **[anti-generic-ui](skills/anti-generic-ui/)** | Detects the "AI look" (banned defaults, the tells) and drives a critique → audit → polish → harden process. | Guidance (original) |
 | **[cssfx-design](skills/cssfx-design/)** | 100 zero-dependency CSS micro-interactions (buttons, loaders, cards, text, backgrounds, hover, borders, forms) as copy-paste `fx-*` classes. | Assets (CSSFX, MIT) |
+| **[expo-rn-polish](skills/expo-rn-polish/)** | Make Expo / React Native UI (iOS/Android/web) feel intentional: the RN generic tells + a token-driven theming pattern, dark mode, Dynamic Type, and Markdown/LaTeX WebView content. | Guidance (original) |
 
-> Roadmap: design-token systems, distinctive type pairings, layered-shadow
-> palettes, and more asset skills. PRs welcome — see *Contributing*.
+> Roadmap: design-token generators, Flutter & SwiftUI polish packs, distinctive
+> type pairings, "taste packs" (swappable design languages). PRs welcome — see
+> *Contributing*.
 
 ## Install
 
