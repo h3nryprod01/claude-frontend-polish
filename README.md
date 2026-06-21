@@ -1,68 +1,75 @@
-# cssfx-claude-skill
+# claude-frontend-polish
 
-**100 handcrafted, zero-dependency CSS effects — packaged as a Claude Code skill.**
+**Curated Claude Code skills that fight the "AI-generated look" and make
+front-end UI feel intentional.**
 
-Stop shipping flat, AI-generated styling. This skill gives your coding agent a
-catalog of production-ready `fx-*` micro-interactions: animated buttons,
-spinners/loaders, glassmorphism cards, gradient/glitch text, animated
-backgrounds, hover effects, neon borders, and form inputs — **pure CSS, no JS,
-no libraries.**
+Coding agents converge on the same design because they trained on the same
+templates: Inter everywhere, untouched Tailwind `indigo`/`slate`, card-in-card
+layouts, bounce easing, and the hero → features → pricing → FAQ skeleton. This
+repo is a growing collection of skills that give your agent concrete, opinionated
+tools to do better — detection rules *and* ready-made polish.
 
-| Category | Effects | | Category | Effects |
-|----------|:------:|---|----------|:------:|
-| Buttons | 16 | | Hover | 11 |
-| Loaders | 18 | | Backgrounds | 6 |
-| Text | 17 | | Borders | 4 |
-| Cards | 8 | | Forms | 4 |
-| Misc | 16 | | **Total** | **100** |
+## Skills
+
+| Skill | What it does | Type |
+|-------|--------------|------|
+| **[anti-generic-ui](skills/anti-generic-ui/)** | Detects the "AI look" (banned defaults, the tells) and drives a critique → audit → polish → harden process. | Guidance (original) |
+| **[cssfx-design](skills/cssfx-design/)** | 100 zero-dependency CSS micro-interactions (buttons, loaders, cards, text, backgrounds, hover, borders, forms) as copy-paste `fx-*` classes. | Assets (CSSFX, MIT) |
+
+> Roadmap: design-token systems, distinctive type pairings, layered-shadow
+> palettes, and more asset skills. PRs welcome — see *Contributing*.
 
 ## Install
 
-### Claude Code (as a skill)
 ```bash
-git clone https://github.com/<you>/cssfx-claude-skill.git
-cd cssfx-claude-skill
-./install.sh        # copies into ~/.claude/skills/cssfx-design/
+git clone https://github.com/h3nryprod01/claude-frontend-polish.git
+cd claude-frontend-polish
+./install.sh        # installs every skill in skills/ into ~/.claude/skills/
 ```
-Restart Claude Code. The skill auto-activates on requests like "make this button
-nicer", "add a loader", "animated gradient text", "glassmorphism card".
+Restart Claude Code. Skills auto-activate on requests like "make this look less
+generic", "polish the UI", "add a loader", "design a landing page".
 
-### Any project (just the CSS)
-Drop [`assets/cssfx.css`](assets/cssfx.css) into your project and apply the
-`fx-*` class names from the catalog. That's it — one ~87 KB file, no build step.
+Each skill is self-contained — you can also copy a single `skills/<name>/` folder
+into `~/.claude/skills/` (or a project's `.claude/skills/`).
 
-## How it's organized
+## The problem these fight
 
-- **`SKILL.md`** — the Claude Code skill: when-to-use + full 100-effect catalog.
-- **`assets/cssfx.css`** — the entire library in one drop-in file. Each effect is
-  delimited by `/* === Effect Name === */`.
-- **`references/<category>.md`** — per effect: name, `fx-*` class, a usage HTML
-  snippet, and the full CSS.
+The generic "tells", in one place:
 
-> The HTML snippets are a **starting point**. The CSS (and its descendant
-> selectors) is authoritative for any required child structure.
+- **Type:** Inter / Roboto / Arial for everything, one weight, no display face.
+- **Color:** untouched `indigo-600` / `slate-900`, gray text on white, a
+  blue→violet hero gradient.
+- **Layout:** the same hero → 3-col features → logo cloud → pricing → FAQ → footer.
+- **Depth:** cards in cards, `border + shadow-sm` on everything, uniform radius.
+- **Motion:** bounce/elastic easing, 500ms transitions, identical scroll-fades.
 
-## Accessibility
+`anti-generic-ui` makes the agent *notice* these and leave them; `cssfx-design`
+gives it polished interactions to reach for instead.
 
-Effects respect `prefers-reduced-motion` where the source did. Gate any custom
-motion behind `@media (prefers-reduced-motion: no-preference)`.
+## Contributing
 
-## Attribution & license
+Add a skill as `skills/<name>/SKILL.md` (plus optional `assets/` and
+`references/`). Keep it: opinionated, concrete, and licensed for redistribution.
+Asset skills must credit their upstream source in the repo's `CREDITS.md`. Open a
+PR.
 
-The CSS effects are **not original to this repo**. They come from:
+## Credits & further reading
 
-- **[CSSFX](https://github.com/jolaleye/cssfx)** by jolaleye — MIT licensed
-  (the canonical ~45-effect collection).
-- An **extended 100-effect gallery** (the source this skill was built from),
-  which states an MIT license and credits CSSFX.
+This collection stands on the shoulders of the design community. See
+[`CREDITS.md`](CREDITS.md) for full attribution. Notable resources that inspired
+or complement these skills:
 
-This repository only packages those effects into the Claude Code skill format
-(SKILL.md structure, category references, installer). See
-[`CREDITS.md`](CREDITS.md). All CSS was extracted **verbatim** from the public
-gallery stylesheet — nothing hand-fabricated.
+- **[Refactoring UI](https://www.refactoringui.com/)** — Adam Wathan & Steve Schoger.
+- **[Open Props](https://open-props.style/)** — Adam Argyle (CSS design tokens).
+- **[CSSFX](https://github.com/jolaleye/cssfx)** — jolaleye (MIT), source of `cssfx-design`.
+- **[Motion](https://motion.dev/)**, **[css-loaders](https://css-loaders.com/)**,
+  **[Animista](https://animista.net/)**, **[Hover.css](https://ianlunn.github.io/Hover/)**.
+- The **"Impeccable"** anti-generic design skill (Paul Bakaus) — a kindred,
+  larger guidance project.
 
-If you are the author of any effect here and want attribution changed or content
-removed, open an issue.
+## License
 
-Packaging code & docs: MIT (see [`LICENSE`](LICENSE)). CSS effects: MIT per their
-upstream sources.
+Packaging, docs, and the `anti-generic-ui` skill: **MIT** ([`LICENSE`](LICENSE)).
+Bundled CSS assets are MIT per their upstream authors — see
+[`CREDITS.md`](CREDITS.md). If you authored bundled content and want attribution
+changed or it removed, open an issue.

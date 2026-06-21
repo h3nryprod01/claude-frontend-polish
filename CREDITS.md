@@ -1,23 +1,23 @@
 # Credits
 
-The CSS effects in this repository are the work of their original authors, not
-of this repository's maintainer. This repo only repackages them as a Claude Code
-skill.
+This repository packages and authors Claude Code skills for front-end polish.
+Bundled third-party assets remain the work of their original authors.
 
-## Sources
+## Skills
 
-- **CSSFX** — https://github.com/jolaleye/cssfx (MIT License, © jolaleye).
-  The canonical, beautifully simple click-to-copy CSS effect collection
-  (~45 effects: buttons, inputs, loaders, text).
-- **Extended CSSFX gallery** — a public 100-effect / 9-category gallery
-  (buttons, loaders, cards, text, backgrounds, hover, borders, forms, misc)
-  that states an MIT license and credits CSSFX. All CSS here was extracted
-  verbatim from that gallery's stylesheet.
+- **anti-generic-ui** — original guidance written for this repo (MIT). Inspired
+  by *Refactoring UI* (Adam Wathan & Steve Schoger), *Open Props* (Adam Argyle),
+  and the "Impeccable" design skill (Paul Bakaus). No third-party text copied.
 
-## Provenance note
+- **cssfx-design** — CSS effects from:
+  - **CSSFX** — https://github.com/jolaleye/cssfx (MIT, © jolaleye). Canonical
+    ~45-effect collection (buttons, inputs, loaders, text).
+  - An **extended 100-effect / 9-category gallery** that declares an MIT license
+    and credits CSSFX. All CSS was extracted verbatim from the gallery's public
+    stylesheet; individual-effect authorship of the extended set was not
+    independently verified.
 
-The maintainer verified that the canonical `jolaleye/cssfx` repo ships ~45
-effects under MIT. The additional effects in the 100-set come from the extended
-gallery, which declares MIT but whose individual-effect authorship was not
-independently verified. If you hold rights to any effect and want it
-attributed differently or removed, please open an issue.
+## Removal / re-attribution
+
+If you hold rights to any bundled content and want it attributed differently or
+removed, open an issue and it will be addressed promptly.

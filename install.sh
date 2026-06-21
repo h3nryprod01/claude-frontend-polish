@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
-# Install the cssfx-design skill into Claude Code.
+# Install every skill in skills/ into Claude Code's skills dir.
 set -euo pipefail
-DEST="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/cssfx-design"
-SRC="$(cd "$(dirname "$0")" && pwd)"
+DEST="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills"
+SRC="$(cd "$(dirname "$0")" && pwd)/skills"
 mkdir -p "$DEST"
-cp "$SRC/SKILL.md" "$DEST/"
-cp -R "$SRC/assets" "$DEST/"
-cp -R "$SRC/references" "$DEST/"
-echo "Installed cssfx-design -> $DEST"
-echo "Restart Claude Code to activate. Or just drop assets/cssfx.css into any project."
+for d in "$SRC"/*/; do
+  name="$(basename "$d")"
+  rm -rf "$DEST/$name"
+  cp -R "$d" "$DEST/$name"
+  echo "Installed skill: $name -> $DEST/$name"
+done
+echo "Done. Restart Claude Code to activate."
